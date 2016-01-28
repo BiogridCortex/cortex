@@ -2,6 +2,13 @@ mongo:
   image: biogrid/mongo
   ports:
     - "27017:27017"
+  volumes_from:
+    - mongo_data
+mongo_data:
+    image: biogrid/mongo
+    command: --break-mongo
+    volumes:
+        - /data/db
 mosquitto:
   image: biogrid/mosquitto
   ports:
