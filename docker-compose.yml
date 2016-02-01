@@ -13,5 +13,5 @@ node-red:
   image: biogrid/node-red
   ports:
     - "1880:1880"
-  volumes:
-    - "$PWD/flows:/root/.node-red/flows"
+  #volumes:
+  #  - "$PWD/flows:/root/.node-red/flows"
