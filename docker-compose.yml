@@ -1,10 +1,15 @@
+mongodata:
+  image: biogrid/mongo
+  volumes:
+    - /data
+  command:
+    - "true"
 mongo:
   image: biogrid/mongo
   ports:
     - "27017:27017"
-# Note: volumes don't work on OS X / VirtualBox yet
-#  volumes:
-#    - "$PWD/db:/data/db"
+  volumes_from:
+    - mongodata
 mosquitto:
   image: biogrid/mosquitto
   ports:
@@ -13,5 +18,3 @@ node-red:
   image: biogrid/node-red
   ports:
     - "1880:1880"
-  #volumes:
-  #  - "$PWD/flows:/root/.node-red/flows"
