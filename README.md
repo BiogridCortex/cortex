@@ -4,8 +4,13 @@ Orchestration of the Docker containers involved in Biogrid Cortex using Docker C
 No effort has been done to secure access to the various processes.
 
 ## Usage
+
+### Starting Biogrid Cortex
 ```docker-compose --x-networking up``` to run in foreground.
 ```docker-compose --x-networking up -d``` to run as daemon.
+
+### Stopping Biogrid Cortex
+```docker-compose stop```
 
 ## Howto
 This assumes that you're on OS X or Windows.
@@ -32,6 +37,10 @@ To connect using MongoDB Shell:
 ```mongo --host `docker-machine ip default` ```
 
 (this requires Mongo to be installed on your host)
+
+Use the Biogrid database:
+
+```use biogrid```
 
 To get all stored sensor readings for the RH sensor with ID 81772309-6FFF-4886-9977-DA15AD34C263 for a specific day:
 
