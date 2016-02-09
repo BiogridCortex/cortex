@@ -45,11 +45,11 @@ Use the Biogrid database:
 To get all stored sensor readings for the RH sensor with ID 81772309-6FFF-4886-9977-DA15AD34C263 for a specific day:
 
 ```
-db.rh.find({day: "2016-02-04", sensor_id:"81772309-6FFF-4886-9977-DA15AD34C263"}).pretty()
+db.sensors.find({type: "rh", day: "2016-02-04", sensor_id:"81772309-6FFF-4886-9977-DA15AD34C263"}).pretty()
 ```
 
 To narrow the query to all readings at 10:30 on the same day, use projection:
 
 ```
-db.rh.find({day: "2016-02-04", sensor_id:"81772309-6FFF-4886-9977-DA15AD34C263"}, {"values.10.30":1, _id:0}).pretty()
+db.sensors.find({type: "rh", day: "2016-02-04", sensor_id:"81772309-6FFF-4886-9977-DA15AD34C263"}, {"values.10.30":1, _id:0}).pretty()
 ```
