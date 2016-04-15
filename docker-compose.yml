@@ -1,20 +1,23 @@
-mongodata:
-  image: biogrid/mongo
-  volumes:
-    - /data
-  command:
-    - "true"
-mongo:
-  image: biogrid/mongo
-  ports:
-    - "27017:27017"
-  volumes_from:
-    - mongodata
-mosquitto:
-  image: biogrid/mosquitto
-  ports:
-    - "1883:1883"
-node-red:
-  image: biogrid/node-red
-  ports:
-    - "1880:1880"
+version: '2'
+
+services:
+  mongodata:
+    image: biogrid/mongo
+    volumes:
+      - /data
+    command:
+      - "true"
+  mongo:
+    image: biogrid/mongo
+    ports:
+      - "27017:27017"
+    volumes_from:
+      - mongodata
+  mosquitto:
+    image: biogrid/mosquitto
+    ports:
+      - "1883:1883"
+  node-red:
+    image: biogrid/node-red
+    ports:
+      - "1880:1880"
